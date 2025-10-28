@@ -1,6 +1,6 @@
-rg1_name                 = "East-RG01"
+rg1_name                 = "japan-RG01"
 #rg2_name                 = "Central-RG01"
-rg1_location             = "eastus"
+rg1_location             = "japaneast"
 #rg2_location             = "centralus"
 batch4_vNet01_name       = "east_vNet01"
 vnet01_address           = ["10.0.0.0/16"]

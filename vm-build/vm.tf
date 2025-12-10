@@ -5,14 +5,14 @@ resource "azurerm_linux_virtual_machine" "East-Test-VM01" {
   network_interface_ids = [azurerm_network_interface.east-VM01-NIC.id]
   # zone             = 1  # Commented out to avoid SKU restriction
   size                = "Standard_B1s"
-  admin_username      = "azadmin"
-  admin_password      = "Password@123"
+  admin_username      = "siva"
+  admin_password      = "Nsbyadav@143"
   disable_password_authentication = false
 
   os_disk {
     name                 = "east-web-VM01-myOsDisk"
     caching              = "ReadWrite"
-    storage_account_type = "Premium_LRS"
+    storage_account_type = "Standard_LRS"
   }
 
   source_image_reference {

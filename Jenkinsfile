@@ -5,11 +5,10 @@ pipeline {
         maven 'maven-3.9'
         jdk 'jdk-17'
     }
-
-    stages {     
-        stage('Compile') {
+    stages {
+        stage('git clone') {
             steps {
-               sh "mvn compile"
+                git branch: 'main', url: 'https://github.com/Siva123569/siva.git'
             }
         }
         

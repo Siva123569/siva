@@ -1,0 +1,11 @@
+name: siva
+
+on: workflow_dispatch
+
+jobs:
+  helo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print hello world
+        run: echo "siva"

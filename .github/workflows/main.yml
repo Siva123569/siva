@@ -1,11 +1,28 @@
-name: siva
+name: Deploy index.html to S3
 
-on: workflow_dispatch
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
 
 jobs:
-  helo:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Print hello world
-        run: echo "siva"
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Upload index.html to S3
+        run: aws s3 cp index.html s3://siva-brahamaia12345/
+
+      - name: List S3 Files (Verify)
+        run: aws s3 ls s3://siva-brahamaia12345/
